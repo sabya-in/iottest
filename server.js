@@ -3,6 +3,9 @@ var app = express();
 var fs = require("fs");
 var jsonData = require("./temp.js");
 var url = "test-tempt.herokuapp.com/";
+var currentdate = new Date();
+var datetime = " -- DTS: " + currentdate.getDay() + "/"+currentdate.getMonth() + "/" + currentdate.getFullYear() + " -- " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+console.log(datetime);
 
 app.get('/list', function (req, res) {
    fs.readFile( __dirname + "/" + "temp.js", 'utf8', function (err, data) {
@@ -20,7 +23,7 @@ app.post('/addtemp/:temp', function (req, res) {
        res.end( JSON.stringify(data));   
    });*/
    data = req.params.temp;
-   fs.appendFile(__dirname + "/" + "temp.js", "\n"+data , function(err) {if(err){throw err}else{console.log("TEMP_POSTED")}})
+   fs.appendFile(__dirname + "/" + "temp.js", "\n"+data+" -- "+datetime , function(err) {if(err){throw err}else{console.log("TEMP_POSTED")}})
 })
 
 var server = app.listen((process.env.PORT || 8081), function () {
