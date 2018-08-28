@@ -24,7 +24,7 @@ app.post('/addtemp/:temp', function (req, res) {
    });*/
    data = req.params.temp;
    var datetime = new Date(Date.now()).toLocaleString();
-   fs.appendFile(__dirname + "/" + "temp.js", "\n"+data+" -- "+datetime , function(err) {if(err){throw err}else{console.log("TEMP_POSTED")}})
+   fs.appendFile(__dirname + "/" + "temp.js", "\n"+data+"   "+datetime , function(err) {if(err){throw err}else{console.log("TEMP_POSTED")}})
 })
 
 var server = app.listen((process.env.PORT || 8081), function () {
