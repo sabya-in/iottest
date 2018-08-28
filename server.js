@@ -3,8 +3,8 @@ var app = express();
 var fs = require("fs");
 var jsonData = require("./temp.js");
 var url = "temptest.herokuapp.com/";
-var currentdate = new Date();
-var datetime = " On ( " + currentdate.getDay() + " " + currentdate.getMonth() + " " + currentdate.getFullYear() + " ) At IST " + currentdate.getHours() + "Hrs " + currentdate.getMinutes() + "Min " + currentdate.getSeconds() + "Sec";
+//var currentdate = new Date();
+//var datetime = " On ( " + currentdate.getDay() + " " + currentdate.getMonth() + " " + currentdate.getFullYear() + " ) At IST " + currentdate.getHours() + "Hrs " + currentdate.getMinutes() + "Min " + currentdate.getSeconds() + "Sec";
 console.log(datetime);
 
 app.get('/list', function (req, res) {
@@ -23,6 +23,7 @@ app.post('/addtemp/:temp', function (req, res) {
        res.end( JSON.stringify(data));   
    });*/
    data = req.params.temp;
+   var datetime = new Date(Date.now()).toLocaleString();
    fs.appendFile(__dirname + "/" + "temp.js", "\n"+data+" -- "+datetime , function(err) {if(err){throw err}else{console.log("TEMP_POSTED")}})
 })
 
