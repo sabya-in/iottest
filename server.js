@@ -4,7 +4,7 @@ var fs = require("fs");
 var jsonData = require("./temp.js");
 var url = "temptest.herokuapp.com/";
 var currentdate = new Date();
-var datetime = " -- DTS: " + currentdate.getDay() + "/"+currentdate.getMonth() + "/" + currentdate.getFullYear() + " -- " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+var datetime = " DTS " + currentdate.getDay() + " " + currentdate.getMonth() + " " + currentdate.getFullYear() + "Hrs" + currentdate.getHours() + "Min" + currentdate.getMinutes() + "Sec" + currentdate.getSeconds();
 console.log(datetime);
 
 app.get('/list', function (req, res) {
