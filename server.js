@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var fs = require("fs");
 var jsonData = require("./temp.js");
-var url = "test-tempt.herokuapp.com/";
+var url = "temptest.sachi.com/";
 var currentdate = new Date();
 var datetime = " -- DTS: " + currentdate.getDay() + "/"+currentdate.getMonth() + "/" + currentdate.getFullYear() + " -- " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
 console.log(datetime);
